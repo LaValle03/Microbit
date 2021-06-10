@@ -27,7 +27,8 @@ def avviaGioco():
         import main
     if open("modalita.txt", "r").read()[0] == '2':
         import microbit
-    
+    if open("modalita.txt", "r").read()[0] == '3':
+        import accellerometro
     pygame.quit()
 
 
@@ -38,7 +39,7 @@ def main():
     menu = pygame_menu.Menu(500, 700, 'PONG', theme=pygame_menu.themes.THEME_BLUE)
 
     menu.add_button('Gioca', avviaGioco)
-    menu.add_selector('Modalità :', [('Tastiera', 1), ('Microbit', 2)], onchange=set_modalita)
+    menu.add_selector('Modalità :', [('Tastiera', 1), ('Pulsanti', 2), ('Inclinazione', 3)], onchange=set_modalita)
     menu.add_selector('Difficoltà :', [('Facile', 1), ('Difficile', 2)], onchange=set_difficolta)
     menu.add_button('Esci', pygame_menu.events.EXIT)
 
